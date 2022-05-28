@@ -1,0 +1,45 @@
+﻿@model ASP.NET_Final.ViewModel.BookViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Publish for sale</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BooksName" class="control-label">Title</label>
+                <input asp-for="BooksName" class="form-control" />
+                <span asp-validation-for="BooksName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BooksPrice" class="control-label">Price ($)</label>
+                <input asp-for="BooksPrice" class="form-control" />
+                <span asp-validation-for="BooksPrice" class="text-danger"></span>
+            </div>
+            <div class="form-control">
+                <label asp-for="BooksPage" class="control-label">Picture</label>
+                <input asp-for="BooksPage" class="form-control" />
+                <span asp-validation-for="BooksPage" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Publish" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
